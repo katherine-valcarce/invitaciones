@@ -654,3 +654,44 @@ a { color: inherit; }
   .hero__scroll { margin-top: 10px; font-size: .5rem; }
   .invitation-shell { padding-top: 20px; }
 }
+
+
+/* Hero refinement v2 */
+.hero{min-height:clamp(680px,92vw,820px);overflow:hidden;background:#e8decc}
+.hero__photo{position:absolute;inset:0 0 25% 0;overflow:hidden;background:#e8decc}
+.hero__image,.hero__tiles{position:absolute;inset:0;width:100%;height:100%}
+.hero__image{object-fit:cover;object-position:50% 41%}
+.hero__tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.hero__tiles img{display:block;width:100%;height:100%;object-fit:fill}
+.hero__photo:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(to right,rgba(255,252,244,.1),transparent 22%,transparent 80%,rgba(255,252,244,.12))}
+.hero__monogram{top:5.4%;left:5.3%;z-index:8;min-width:122px;text-shadow:-1px -1px 0 rgba(255,255,255,.95),1px -1px 0 rgba(255,255,255,.95),-1px 1px 0 rgba(255,255,255,.95),1px 1px 0 rgba(255,255,255,.95),0 3px 18px #fff}
+.hero__monogram strong{-webkit-text-stroke:.35px rgba(255,255,255,.75)}
+.hero__phrase{top:6.2%;right:4.4%;z-index:8;width:112px;font-size:clamp(1.55rem,3.8vw,2.35rem);text-shadow:-1px -1px 0 rgba(255,255,255,.96),1px -1px 0 rgba(255,255,255,.96),-1px 1px 0 rgba(255,255,255,.96),1px 1px 0 rgba(255,255,255,.96),0 4px 16px #fff;-webkit-text-stroke:.25px rgba(255,255,255,.85)}
+.hero__phrase:after{content:"♡";display:block;margin-top:3px;font: .8em Georgia,serif}
+.hero__menu{display:none}
+.hero__panel{left:-3%;right:-3%;min-height:34%;padding:clamp(52px,7vw,72px) 8% 22px;border-radius:52% 48% 0 0/18% 18% 0 0;background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.92),transparent 44%),linear-gradient(180deg,#fffef9 0%,#fbf6eb 100%);box-shadow:0 -12px 28px rgba(79,65,38,.09)}
+.hero__panel .couple-name{font-size:clamp(4.35rem,12.2vw,7.4rem);text-shadow:0 2px 0 rgba(255,255,255,.95)}
+.hero__panel .eyebrow{font-size:.7rem;letter-spacing:.5em}
+.hero__date{letter-spacing:.16em}
+.hero .floral-corner{z-index:7;filter:drop-shadow(0 8px 13px rgba(50,61,42,.14))}
+.hero .hero-floral--top-left{top:-86px;left:-92px;width:clamp(160px,24vw,245px);opacity:.9}
+.hero .hero-floral--top-right{top:-90px;right:-96px;width:clamp(160px,24vw,245px);opacity:.9;transform:scaleX(-1)}
+.hero .hero-floral--bottom-left{top:auto;left:-38px;bottom:23.5%;width:clamp(220px,34vw,320px);transform:rotate(-4deg)}
+.hero .hero-floral--bottom-right{top:auto;right:-42px;bottom:23.5%;width:clamp(230px,35vw,330px);transform:scaleX(-1) rotate(-4deg)}
+.botanical-stems{fill:none;stroke:#748064;stroke-width:2.2;stroke-linecap:round}
+.botanical-leaves{fill:#6d7c61}.botanical-leaves--light{fill:#8f9b83;opacity:.88}
+.botanical-flower{fill:#fffdf8;stroke:rgba(211,199,171,.65);stroke-width:.65}
+.botanical-flower__center{fill:#d2ae55;stroke:none}.botanical-flower__dot{fill:#8f723b;stroke:none}
+.botanical-buds{fill:#fffdf8;stroke:rgba(211,199,171,.7);stroke-width:1}
+@media(max-width:700px){
+.hero{min-height:720px}.hero__photo{inset:0 0 27% 0}.hero__monogram{top:4.5%;left:4%;min-width:104px}.hero__monogram strong{font-size:3.15rem}
+.hero__phrase{top:5.2%;right:4%;width:92px;font-size:1.55rem}.hero__panel{min-height:36%;padding:54px 6% 14px;border-radius:58% 42% 0 0/14% 14% 0 0}
+.hero__panel .couple-name{font-size:clamp(3.45rem,16vw,4.55rem)}.hero__panel .eyebrow{letter-spacing:.39em}
+.hero .hero-floral--top-left,.hero .hero-floral--top-right{width:150px}.hero .hero-floral--top-left{top:-62px;left:-68px}.hero .hero-floral--top-right{top:-65px;right:-71px}
+.hero .hero-floral--bottom-left,.hero .hero-floral--bottom-right{bottom:25.8%;width:210px}.hero .hero-floral--bottom-left{left:-62px}.hero .hero-floral--bottom-right{right:-66px}
+}
+@media(max-width:430px){
+.hero{min-height:690px}.hero__photo{inset:0 0 29% 0}.hero__monogram{top:3.7%;left:3.4%}.hero__monogram strong{font-size:2.8rem}.hero__monogram small{font-size:.49rem}
+.hero__phrase{top:4.2%;right:2.8%;width:84px;font-size:1.35rem}.hero__panel{min-height:38%;padding-top:50px}.hero__panel .couple-name{font-size:clamp(3.15rem,15.6vw,4rem)}
+.hero .hero-floral--bottom-left,.hero .hero-floral--bottom-right{bottom:27.6%;width:190px}
+}
