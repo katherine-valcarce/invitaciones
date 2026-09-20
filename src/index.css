@@ -1019,3 +1019,209 @@ a { color: inherit; }
     font-size: clamp(3.05rem, 15vw, 3.9rem);
   }
 }
+
+
+/* ===== Antonio & Nicole hero v4: full-width photo + stronger ivory curve ===== */
+.hero {
+  min-height: 820px;
+  background: #eee6d8;
+}
+
+/* The couple photo now fills the complete hero width. */
+.hero__photo {
+  inset: 0 0 27% 0;
+  background: #e9dfd0;
+}
+
+.hero__backdrop {
+  display: none;
+}
+
+.hero__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 34%;
+  transform: none;
+}
+
+/* Keep the typography readable now that it sits directly over the photo. */
+.hero__monogram {
+  top: 4.8%;
+  left: 5.2%;
+  text-shadow:
+    -1.2px -1.2px 0 rgba(255,255,255,.98),
+     1.2px -1.2px 0 rgba(255,255,255,.98),
+    -1.2px  1.2px 0 rgba(255,255,255,.98),
+     1.2px  1.2px 0 rgba(255,255,255,.98),
+     0 3px 14px rgba(255,255,255,.95);
+}
+
+.hero__phrase {
+  top: 5%;
+  right: 4.7%;
+  width: 98px;
+  font-size: 1.62rem;
+  text-shadow:
+    -1.2px -1.2px 0 rgba(255,255,255,.98),
+     1.2px -1.2px 0 rgba(255,255,255,.98),
+    -1.2px  1.2px 0 rgba(255,255,255,.98),
+     1.2px  1.2px 0 rgba(255,255,255,.98),
+     0 3px 14px rgba(255,255,255,.95);
+}
+
+/* Real floral assets frame the photo/curve transition. */
+.hero-flower {
+  z-index: 10;
+  height: clamp(245px, 31vw, 320px);
+  filter: drop-shadow(0 9px 13px rgba(47,57,37,.11));
+}
+
+.hero-flower--left {
+  left: -18px;
+  bottom: 19.5%;
+}
+
+.hero-flower--right {
+  right: -18px;
+  bottom: 19.5%;
+}
+
+/*
+  The panel is intentionally flat itself; the ::before ellipse creates a
+  single, much deeper continuous arch like the reference invitation.
+*/
+.hero__panel {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  min-height: 31%;
+  padding: 38px 8% 20px;
+  overflow: visible;
+  border-radius: 0;
+  background: linear-gradient(180deg, #fffef9 0%, #faf5ea 100%);
+  box-shadow: none;
+}
+
+.hero__panel::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: -8%;
+  top: -92px;
+  width: 116%;
+  height: 155px;
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255,255,255,.96), transparent 56%),
+    linear-gradient(180deg, #fffef9 0%, #fbf6eb 100%);
+  box-shadow: 0 -12px 28px rgba(69,58,38,.07);
+}
+
+.hero__panel .eyebrow {
+  position: relative;
+  z-index: 1;
+  margin-top: -2px;
+}
+
+.hero__panel .couple-name,
+.hero__panel .ornament,
+.hero__date,
+.hero__scroll,
+.hero__chevron {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 700px) {
+  .hero {
+    min-height: 730px;
+  }
+
+  .hero__photo {
+    inset: 0 0 29% 0;
+  }
+
+  .hero__image {
+    object-position: 50% 36%;
+  }
+
+  .hero-flower {
+    height: 205px;
+  }
+
+  .hero-flower--left {
+    left: -18px;
+    bottom: 23%;
+  }
+
+  .hero-flower--right {
+    right: -18px;
+    bottom: 23%;
+  }
+
+  .hero__panel {
+    min-height: 34%;
+    padding: 32px 6% 14px;
+  }
+
+  .hero__panel::before {
+    top: -76px;
+    height: 128px;
+    left: -10%;
+    width: 120%;
+  }
+}
+
+@media (max-width: 430px) {
+  .hero {
+    min-height: 690px;
+  }
+
+  .hero__photo {
+    inset: 0 0 30% 0;
+  }
+
+  .hero__image {
+    object-position: 50% 35%;
+  }
+
+  .hero__monogram {
+    top: 3.7%;
+    left: 3.8%;
+  }
+
+  .hero__phrase {
+    top: 4%;
+    right: 3%;
+    width: 80px;
+    font-size: 1.28rem;
+  }
+
+  .hero-flower {
+    height: 176px;
+  }
+
+  .hero-flower--left {
+    left: -20px;
+    bottom: 24%;
+  }
+
+  .hero-flower--right {
+    right: -20px;
+    bottom: 24%;
+  }
+
+  .hero__panel {
+    min-height: 35%;
+    padding-top: 28px;
+  }
+
+  .hero__panel::before {
+    top: -68px;
+    height: 116px;
+  }
+}
