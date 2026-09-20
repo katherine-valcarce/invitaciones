@@ -77,6 +77,12 @@ export default function ElegantFloralWedding({
 
         <div className="hero__phrase">{invitation.heroPhrase}</div>
 
+        <span className="hero__menu" aria-hidden="true">
+          <i />
+          <i />
+          <i />
+        </span>
+
         <img
           className="hero-flower hero-flower--left"
           src={import.meta.env.BASE_URL + "assets/matrimonios/antonio-nicole/floral-left.webp"}
