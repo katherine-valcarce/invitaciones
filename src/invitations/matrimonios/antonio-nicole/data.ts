@@ -6,7 +6,12 @@ const invitation: WeddingInvitation = {
     first: "Antonio",
     second: "Nicole",
   },
-  heroImage: "assets/matrimonios/antonio-nicole/pareja.webp",
+  heroTiles: [
+    "assets/matrimonios/antonio-nicole/hero-1.webp",
+    "assets/matrimonios/antonio-nicole/hero-2.webp",
+    "assets/matrimonios/antonio-nicole/hero-3.webp",
+    "assets/matrimonios/antonio-nicole/hero-4.webp",
+  ],
   heroPhrase: "Para siempre juntos",
   intro:
     "Queremos compartir con ustedes uno de los días más importantes de nuestras vidas",
