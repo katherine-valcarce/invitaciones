@@ -4,7 +4,8 @@ export type WeddingInvitation = {
     first: string;
     second: string;
   };
-  heroImage: string;
+  heroImage?: string;
+  heroTiles?: string[];
   heroPhrase: string;
   intro: string;
   date: {
