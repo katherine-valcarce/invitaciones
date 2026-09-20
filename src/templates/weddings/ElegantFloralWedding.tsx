@@ -73,7 +73,6 @@ export default function ElegantFloralWedding({
             />
           )
         )}
-        <div className="hero__shade" aria-hidden="true" />
         <div className="hero__phrase">{invitation.heroPhrase}</div>
         <FloralCorner position="top-left" />
         <FloralCorner position="top-right" />
