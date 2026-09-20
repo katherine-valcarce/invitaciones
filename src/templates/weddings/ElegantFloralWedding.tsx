@@ -19,6 +19,9 @@ export default function ElegantFloralWedding({
   const heroSrc = invitation.heroImage
     ? import.meta.env.BASE_URL + invitation.heroImage
     : undefined;
+  const heroTiles = (invitation.heroTiles ?? []).map(
+    (path) => import.meta.env.BASE_URL + path,
+  );
 
   const whatsappUrl = useMemo(() => {
     const phone = onlyDigits(invitation.rsvp.whatsapp);
@@ -51,23 +54,47 @@ export default function ElegantFloralWedding({
   return (
     <main className="wedding-page">
       <section className="hero" aria-labelledby="couple-name">
-        {heroSrc && (
-            <img
-              className="hero__image"
-              src={heroSrc}
-              alt={invitation.couple.first + " y " + invitation.couple.second}
-            />
-        )}
+        <div className="hero__photo">
+          {heroTiles.length > 0 ? (
+            <div
+              className="hero__tiles"
+              role="img"
+              aria-label={invitation.couple.first + " y " + invitation.couple.second}
+            >
+              {heroTiles.map((src) => (
+                <img key={src} src={src} alt="" aria-hidden="true" />
+              ))}
+            </div>
+          ) : (
+            heroSrc && (
+              <img
+                className="hero__image"
+                src={heroSrc}
+                alt={invitation.couple.first + " y " + invitation.couple.second}
+              />
+            )
+          )}
+        </div>
+
         <div className="hero__monogram" aria-label="Antonio y Nicole, juntos siempre">
           <strong>A <i>&amp;</i> N</strong>
           <span>♥</span>
           <small>Juntos siempre</small>
         </div>
+
         <div className="hero__phrase">{invitation.heroPhrase}</div>
-        <FloralCorner position="top-left" />
-        <FloralCorner position="top-right" />
-        <FloralCorner position="bottom-left" className="hero-floral hero-floral--left" />
-        <FloralCorner position="bottom-right" className="hero-floral hero-floral--right" />
+
+        <span className="hero__menu" aria-hidden="true">
+          <i />
+          <i />
+          <i />
+        </span>
+
+        <FloralCorner position="top-left" className="hero-floral hero-floral--top-left" />
+        <FloralCorner position="top-right" className="hero-floral hero-floral--top-right" />
+        <FloralCorner position="bottom-left" className="hero-floral hero-floral--bottom-left" />
+        <FloralCorner position="bottom-right" className="hero-floral hero-floral--bottom-right" />
+
         <div className="hero__panel">
           <span className="eyebrow">Nos casamos</span>
           <h1 id="couple-name" className="couple-name">
