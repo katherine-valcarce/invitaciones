@@ -550,12 +550,15 @@ a { color: inherit; }
    This keeps the clean photo crisp without applying any visual filter to skin. */
 .hero__tiles {
   position: absolute;
-  inset: 0;
+  left: 0;
+  top: 50%;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   width: 100%;
-  height: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
   overflow: hidden;
+  transform: translateY(-50%);
 }
 
 .hero__tiles img {
