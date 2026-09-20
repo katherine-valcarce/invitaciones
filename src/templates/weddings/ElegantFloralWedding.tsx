@@ -16,7 +16,12 @@ export default function ElegantFloralWedding({
   invitation,
 }: ElegantFloralWeddingProps) {
   const [copied, setCopied] = useState(false);
-  const heroSrc = import.meta.env.BASE_URL + invitation.heroImage;
+  const heroSrc = invitation.heroImage
+    ? import.meta.env.BASE_URL + invitation.heroImage
+    : undefined;
+  const heroTiles = (invitation.heroTiles ?? []).map(
+    (path) => import.meta.env.BASE_URL + path,
+  );
 
   const whatsappUrl = useMemo(() => {
     const phone = onlyDigits(invitation.rsvp.whatsapp);
@@ -49,11 +54,25 @@ export default function ElegantFloralWedding({
   return (
     <main className="wedding-page">
       <section className="hero" aria-labelledby="couple-name">
-        <img
-          className="hero__image"
-          src={heroSrc}
-          alt={"Antonio y Nicole"}
-        />
+        {heroTiles.length > 0 ? (
+          <div
+            className="hero__tiles"
+            role="img"
+            aria-label={invitation.couple.first + " y " + invitation.couple.second}
+          >
+            {heroTiles.map((src) => (
+              <img key={src} src={src} alt="" aria-hidden="true" />
+            ))}
+          </div>
+        ) : (
+          heroSrc && (
+            <img
+              className="hero__image"
+              src={heroSrc}
+              alt={invitation.couple.first + " y " + invitation.couple.second}
+            />
+          )
+        )}
         <div className="hero__shade" aria-hidden="true" />
         <div className="hero__phrase">{invitation.heroPhrase}</div>
         <FloralCorner position="top-left" />
