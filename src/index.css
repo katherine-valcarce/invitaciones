@@ -546,31 +546,111 @@ a { color: inherit; }
 }
 
 
-/* Reconstructs the Antonio & Nicole portrait from lightweight vertical strips.
-   This keeps the clean photo crisp without applying any visual filter to skin. */
-.hero__tiles {
+/* Editorial wedding cover */
+.hero {
+  min-height: clamp(650px, 105vw, 900px);
+  overflow: visible;
+  background: #ded3bf;
+}
+.hero__image {
+  height: 78%;
+  object-position: center 43%;
+}
+.hero::after {
+  content: "";
   position: absolute;
-  left: 0;
-  top: 50%;
+  z-index: 2;
+  inset: 0 0 21% 0;
+  background: linear-gradient(90deg, rgba(47, 50, 35, .13), transparent 24%, transparent 76%, rgba(53, 49, 33, .08));
+  pointer-events: none;
+}
+.hero__monogram {
+  position: absolute;
+  z-index: 5;
+  top: 5.5%;
+  left: 6%;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  width: 100%;
-  height: auto;
-  aspect-ratio: 3 / 4;
+  color: #77603c;
+  text-align: center;
+  text-shadow: 0 1px 12px rgba(255, 255, 255, .9);
+}
+.hero__monogram strong {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(2.7rem, 7vw, 4.5rem);
+  font-weight: 400;
+  line-height: .8;
+  border-bottom: 1px solid rgba(119, 96, 60, .55);
+}
+.hero__monogram strong i { font-size: .48em; font-weight: 400; }
+.hero__monogram > span { margin: 3px 0 1px; font-size: .65rem; }
+.hero__monogram small { font: 600 .55rem/1.5 "Cormorant Garamond", serif; letter-spacing: .31em; text-transform: uppercase; }
+.hero__phrase {
+  top: 16%;
+  right: 3%;
+  width: 132px;
+  color: #725b37;
+  font-size: clamp(2rem, 5.8vw, 3.2rem);
+}
+.hero .floral-corner { z-index: 4; width: clamp(165px, 31vw, 285px); filter: drop-shadow(0 8px 10px rgba(48, 52, 35, .1)); }
+.hero .floral-corner--top-left { top: -65px; left: -80px; opacity: .78; }
+.hero .floral-corner--top-right { top: -65px; right: -80px; opacity: .78; }
+.hero .hero-floral { top: auto; bottom: 16%; width: clamp(210px, 38vw, 330px); opacity: 1; }
+.hero .hero-floral--left { left: -65px; }
+.hero .hero-floral--right { right: -65px; }
+.hero__panel {
+  position: absolute;
+  z-index: 3;
+  right: -4%;
+  bottom: -1px;
+  left: -4%;
+  min-height: 31%;
+  padding: clamp(50px, 8vw, 72px) 8% 20px;
   overflow: hidden;
-  transform: translateY(-50%);
+  background: linear-gradient(175deg, #fffef9 0%, #faf5e9 100%);
+  border-radius: 52% 48% 0 0 / 20% 20% 0 0;
+  box-shadow: 0 -10px 35px rgba(69, 58, 38, .08);
+  text-align: center;
 }
-
-.hero__tiles img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
+.hero__panel .eyebrow { color: #536046; font-size: .72rem; letter-spacing: .48em; }
+.hero__panel .couple-name {
+  margin: 5px 0 -4px;
+  font-size: clamp(4.2rem, 13vw, 7.6rem);
+  white-space: nowrap;
 }
+.hero__panel .couple-name span { margin: 0 .1em; }
+.hero__panel .ornament { margin: 7px auto 5px; }
+.hero__date {
+  margin: 0;
+  color: #4b4d40;
+  font: 500 clamp(1.35rem, 4.6vw, 2rem)/1.1 "Cormorant Garamond", serif;
+  letter-spacing: .14em;
+}
+.hero__scroll { margin: 13px 0 0; color: #77796f; font-size: .57rem; font-weight: 600; letter-spacing: .27em; text-transform: uppercase; }
+.hero__chevron { display: block; margin-top: -3px; color: var(--olive); font: 1.7rem Georgia, serif; }
+.invitation-shell { padding-top: 26px; }
+.intro-section { margin-top: 0; }
+.intro-copy { margin-bottom: 25px; }
+.detail-card { background: linear-gradient(145deg, rgba(255,255,252,.98), rgba(248,244,235,.86)); border-color: rgba(154,122,61,.22); box-shadow: 0 12px 35px rgba(69,61,43,.07); }
+.detail-card__icon { width: 50px; height: 50px; background: #ede8d8; box-shadow: inset 0 0 0 6px rgba(255,255,255,.35); }
+.rsvp-card { background: linear-gradient(115deg, #fbf7ed, #fffdfa); box-shadow: 0 12px 34px rgba(58,61,43,.08); }
+.rsvp-card .button--primary { min-height: 52px; padding-inline: 24px; }
+.gift-card::before, .gift-card::after { content: "❧"; position: absolute; color: #778367; font-size: 2.5rem; opacity: .35; }
+.gift-card::before { top: 12px; left: 20px; transform: rotate(-35deg); }
+.gift-card::after { right: 20px; bottom: 12px; transform: rotate(145deg); }
 
 @media (max-width: 520px) {
-  .hero {
-    min-height: 0;
-    aspect-ratio: 3 / 4;
-  }
+  .hero { min-height: 670px; }
+  .hero__image { height: 72%; object-position: center top; }
+  .hero__phrase { top: 17%; right: 1%; width: 95px; font-size: 2rem; }
+  .hero__monogram { top: 4%; left: 5%; }
+  .hero__monogram strong { font-size: 2.75rem; }
+  .hero .hero-floral { bottom: 22%; width: 190px; }
+  .hero .hero-floral--left { left: -60px; }
+  .hero .hero-floral--right { right: -62px; }
+  .hero__panel { min-height: 34%; padding: 51px 7% 13px; border-radius: 58% 42% 0 0 / 13% 13% 0 0; }
+  .hero__panel .couple-name { font-size: clamp(3.55rem, 16.8vw, 4.55rem); }
+  .hero__panel .eyebrow { letter-spacing: .38em; }
+  .hero__date { font-size: 1.32rem; }
+  .hero__scroll { margin-top: 10px; font-size: .5rem; }
+  .invitation-shell { padding-top: 20px; }
 }

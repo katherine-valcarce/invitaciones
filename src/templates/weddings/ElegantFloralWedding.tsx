@@ -19,9 +19,6 @@ export default function ElegantFloralWedding({
   const heroSrc = invitation.heroImage
     ? import.meta.env.BASE_URL + invitation.heroImage
     : undefined;
-  const heroTiles = (invitation.heroTiles ?? []).map(
-    (path) => import.meta.env.BASE_URL + path,
-  );
 
   const whatsappUrl = useMemo(() => {
     const phone = onlyDigits(invitation.rsvp.whatsapp);
@@ -54,29 +51,33 @@ export default function ElegantFloralWedding({
   return (
     <main className="wedding-page">
       <section className="hero" aria-labelledby="couple-name">
-        {heroTiles.length > 0 ? (
-          <div
-            className="hero__tiles"
-            role="img"
-            aria-label={invitation.couple.first + " y " + invitation.couple.second}
-          >
-            {heroTiles.map((src) => (
-              <img key={src} src={src} alt="" aria-hidden="true" />
-            ))}
-          </div>
-        ) : (
-          heroSrc && (
+        {heroSrc && (
             <img
               className="hero__image"
               src={heroSrc}
               alt={invitation.couple.first + " y " + invitation.couple.second}
             />
-          )
         )}
+        <div className="hero__monogram" aria-label="Antonio y Nicole, juntos siempre">
+          <strong>A <i>&amp;</i> N</strong>
+          <span>♥</span>
+          <small>Juntos siempre</small>
+        </div>
         <div className="hero__phrase">{invitation.heroPhrase}</div>
         <FloralCorner position="top-left" />
         <FloralCorner position="top-right" />
-        <div className="hero__fade" aria-hidden="true" />
+        <FloralCorner position="bottom-left" className="hero-floral hero-floral--left" />
+        <FloralCorner position="bottom-right" className="hero-floral hero-floral--right" />
+        <div className="hero__panel">
+          <span className="eyebrow">Nos casamos</span>
+          <h1 id="couple-name" className="couple-name">
+            {invitation.couple.first}<span>&amp;</span>{invitation.couple.second}
+          </h1>
+          <div className="ornament" aria-hidden="true"><i /><span>♥</span><i /></div>
+          <p className="hero__date">{invitation.date.display}</p>
+          <p className="hero__scroll">Desliza para ver los detalles</p>
+          <span className="hero__chevron" aria-hidden="true">⌄</span>
+        </div>
       </section>
 
       <section className="invitation-shell">
@@ -84,17 +85,6 @@ export default function ElegantFloralWedding({
         <FloralCorner position="top-right" className="shell-floral shell-floral--right" />
 
         <header className="intro-section reveal">
-          <span className="eyebrow">Nos casamos</span>
-          <h1 id="couple-name" className="couple-name">
-            {invitation.couple.first}
-            <span>&amp;</span>
-            {invitation.couple.second}
-          </h1>
-          <div className="ornament" aria-hidden="true">
-            <i />
-            <span>♥</span>
-            <i />
-          </div>
           <p className="intro-copy">{invitation.intro}</p>
         </header>
 
