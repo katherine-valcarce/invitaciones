@@ -19,9 +19,6 @@ export default function ElegantFloralWedding({
   const heroSrc = invitation.heroImage
     ? import.meta.env.BASE_URL + invitation.heroImage
     : undefined;
-  const heroTiles = (invitation.heroTiles ?? []).map(
-    (path) => import.meta.env.BASE_URL + path,
-  );
 
   const whatsappUrl = useMemo(() => {
     const phone = onlyDigits(invitation.rsvp.whatsapp);
@@ -55,24 +52,20 @@ export default function ElegantFloralWedding({
     <main className="wedding-page">
       <section className="hero" aria-labelledby="couple-name">
         <div className="hero__photo">
-          {heroTiles.length > 0 ? (
-            <div
-              className="hero__tiles"
-              role="img"
-              aria-label={invitation.couple.first + " y " + invitation.couple.second}
-            >
-              {heroTiles.map((src) => (
-                <img key={src} src={src} alt="" aria-hidden="true" />
-              ))}
-            </div>
-          ) : (
-            heroSrc && (
+          {heroSrc && (
+            <>
+              <img
+                className="hero__backdrop"
+                src={heroSrc}
+                alt=""
+                aria-hidden="true"
+              />
               <img
                 className="hero__image"
                 src={heroSrc}
                 alt={invitation.couple.first + " y " + invitation.couple.second}
               />
-            )
+            </>
           )}
         </div>
 
@@ -84,16 +77,18 @@ export default function ElegantFloralWedding({
 
         <div className="hero__phrase">{invitation.heroPhrase}</div>
 
-        <span className="hero__menu" aria-hidden="true">
-          <i />
-          <i />
-          <i />
-        </span>
-
-        <FloralCorner position="top-left" className="hero-floral hero-floral--top-left" />
-        <FloralCorner position="top-right" className="hero-floral hero-floral--top-right" />
-        <FloralCorner position="bottom-left" className="hero-floral hero-floral--bottom-left" />
-        <FloralCorner position="bottom-right" className="hero-floral hero-floral--bottom-right" />
+        <img
+          className="hero-flower hero-flower--left"
+          src={import.meta.env.BASE_URL + "assets/matrimonios/antonio-nicole/floral-left.webp"}
+          alt=""
+          aria-hidden="true"
+        />
+        <img
+          className="hero-flower hero-flower--right"
+          src={import.meta.env.BASE_URL + "assets/matrimonios/antonio-nicole/floral-right.webp"}
+          alt=""
+          aria-hidden="true"
+        />
 
         <div className="hero__panel">
           <span className="eyebrow">Nos casamos</span>
