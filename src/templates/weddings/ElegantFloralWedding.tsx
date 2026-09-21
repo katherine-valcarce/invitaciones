@@ -3,6 +3,7 @@ import Countdown from "../../components/Countdown";
 import FloralCorner from "../../components/FloralCorner";
 import Icon from "../../components/Icon";
 import type { WeddingInvitation } from "../../invitations/types";
+import "../../styles/hero-polish.css";
 
 type ElegantFloralWeddingProps = {
   invitation: WeddingInvitation;
