@@ -1095,3 +1095,55 @@ a { color: inherit; }
   }
 }
 
+
+
+/* ===== Antonio & Nicole hero v6: true full-width photo =====
+   The source photo is now wide enough, so we no longer need a blurred
+   duplicate behind it. Keep one clean image filling the entire photo area. */
+.hero__backdrop {
+  display: none !important;
+}
+
+.hero__photo {
+  background: #e9dfd0;
+}
+
+.hero__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  transform: none;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+.hero__photo::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,.015) 0%,
+    transparent 76%,
+    rgba(255,253,248,.055) 100%
+  );
+}
+
+@media (max-width: 700px) {
+  .hero__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 48%;
+    transform: none;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+}
+
+@media (max-width: 430px) {
+  .hero__image {
+    object-position: 50% 47%;
+  }
+}
