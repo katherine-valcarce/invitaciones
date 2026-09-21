@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Countdown from "../../components/Countdown";
 import Icon from "../../components/Icon";
 import WeddingMusicPlayer from "../../components/WeddingMusicPlayer";
@@ -21,6 +21,46 @@ export default function ElegantFloralWedding({
   const heroSrc = invitation.heroImage
     ? import.meta.env.BASE_URL + invitation.heroImage
     : undefined;
+
+  useEffect(() => {
+    const previousTitle = document.title;
+    document.title = "Matrimonio Nicole & Antonio";
+
+    const faviconHref =
+      import.meta.env.BASE_URL +
+      "assets/matrimonios/antonio-nicole/favicon.svg";
+
+    let favicon = document.querySelector<HTMLLinkElement>('link[rel="icon"]');
+    const faviconExisted = Boolean(favicon);
+    const previousHref = favicon?.getAttribute("href") ?? null;
+    const previousType = favicon?.getAttribute("type") ?? null;
+
+    if (!favicon) {
+      favicon = document.createElement("link");
+      favicon.rel = "icon";
+      document.head.appendChild(favicon);
+    }
+
+    favicon.type = "image/svg+xml";
+    favicon.href = faviconHref;
+
+    return () => {
+      document.title = previousTitle;
+
+      if (!favicon) return;
+
+      if (!faviconExisted) {
+        favicon.remove();
+        return;
+      }
+
+      if (previousHref === null) favicon.removeAttribute("href");
+      else favicon.setAttribute("href", previousHref);
+
+      if (previousType === null) favicon.removeAttribute("type");
+      else favicon.setAttribute("type", previousType);
+    };
+  }, []);
 
   const whatsappUrl = useMemo(() => {
     const phone = onlyDigits(invitation.rsvp.whatsapp);
