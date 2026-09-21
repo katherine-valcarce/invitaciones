@@ -1,9 +1,9 @@
 import { useMemo, useState } from "react";
 import Countdown from "../../components/Countdown";
-import FloralCorner from "../../components/FloralCorner";
 import Icon from "../../components/Icon";
 import type { WeddingInvitation } from "../../invitations/types";
 import "../../styles/hero-polish.css";
+import "../../styles/details-polish.css";
 
 type ElegantFloralWeddingProps = {
   invitation: WeddingInvitation;
@@ -114,8 +114,18 @@ export default function ElegantFloralWedding({
       </section>
 
       <section className="invitation-shell">
-        <FloralCorner position="top-left" className="shell-floral shell-floral--left" />
-        <FloralCorner position="top-right" className="shell-floral shell-floral--right" />
+        <img
+          className="shell-photo-flower shell-photo-flower--left"
+          src={import.meta.env.BASE_URL + "assets/matrimonios/antonio-nicole/floral-left.webp"}
+          alt=""
+          aria-hidden="true"
+        />
+        <img
+          className="shell-photo-flower shell-photo-flower--right"
+          src={import.meta.env.BASE_URL + "assets/matrimonios/antonio-nicole/floral-right.webp"}
+          alt=""
+          aria-hidden="true"
+        />
 
         <header className="intro-section reveal">
           <p className="intro-copy">{invitation.intro}</p>
@@ -159,9 +169,6 @@ export default function ElegantFloralWedding({
             <span>Ceremonia y recepción</span>
             <strong>{invitation.venue.name}</strong>
             <small>{invitation.venue.address}</small>
-            <a className="text-link" href={mapsUrl} target="_blank" rel="noreferrer">
-              Cómo llegar <Icon name="chevron" size={18} />
-            </a>
           </article>
 
           <article className="detail-card">
@@ -192,6 +199,19 @@ export default function ElegantFloralWedding({
             Confirmar
           </a>
         </section>
+
+        <a
+          className="location-button reveal"
+          href={mapsUrl}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <span className="location-button__icon">
+            <Icon name="pin" size={26} />
+          </span>
+          <strong>Cómo llegar</strong>
+          <Icon name="chevron" size={24} />
+        </a>
 
         <p className="special-note reveal">{invitation.specialNote}</p>
 
@@ -232,8 +252,18 @@ export default function ElegantFloralWedding({
           <span>Antonio &amp; Nicole</span>
         </footer>
 
-        <FloralCorner position="bottom-left" className="shell-floral shell-floral--bottom-left" />
-        <FloralCorner position="bottom-right" className="shell-floral shell-floral--bottom-right" />
+        <img
+          className="shell-photo-flower shell-photo-flower--bottom-left"
+          src={import.meta.env.BASE_URL + "assets/matrimonios/antonio-nicole/floral-left.webp"}
+          alt=""
+          aria-hidden="true"
+        />
+        <img
+          className="shell-photo-flower shell-photo-flower--bottom-right"
+          src={import.meta.env.BASE_URL + "assets/matrimonios/antonio-nicole/floral-right.webp"}
+          alt=""
+          aria-hidden="true"
+        />
       </section>
     </main>
   );
