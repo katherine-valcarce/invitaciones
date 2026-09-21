@@ -1487,3 +1487,52 @@ a { color: inherit; }
     bottom: 20% !important;
   }
 }
+/* ===== Ajuste fino final: bajar más la ola y el panel ===== */
+.hero__wave {
+  top: 65% !important;
+  height: 17.5% !important;
+}
+
+.hero__panel {
+  top: 78% !important;
+  padding-top: 6px !important;
+}
+
+.hero-flower--left,
+.hero-flower--right {
+  bottom: 18.5% !important;
+}
+
+/* Tablet */
+@media (max-width: 700px) {
+  .hero__wave {
+    top: 58.5% !important;
+    height: 16.5% !important;
+  }
+
+  .hero__panel {
+    top: 69% !important;
+  }
+
+  .hero-flower--left,
+  .hero-flower--right {
+    bottom: 18% !important;
+  }
+}
+
+/* Móvil */
+@media (max-width: 430px) {
+  .hero__wave {
+    top: 59.5% !important;
+    height: 15.5% !important;
+  }
+
+  .hero__panel {
+    top: 70% !important;
+  }
+
+  .hero-flower--left,
+  .hero-flower--right {
+    bottom: 17.5% !important;
+  }
+}
