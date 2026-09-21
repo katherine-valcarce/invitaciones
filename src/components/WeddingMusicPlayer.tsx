@@ -38,8 +38,11 @@ export default function WeddingMusicPlayer() {
       }
     };
 
-    // Browsers block sound before a user interaction. The first tap/click/key
-    // on the invitation is used to start the couple's song when allowed.
+    // First try immediately. Some browsers/accounts allow autoplay depending
+    // on their media policy and prior interaction with the site.
+    void tryStart();
+
+    // If autoplay with sound is blocked, the first interaction starts it.
     document.addEventListener("pointerdown", tryStart, { once: true });
     document.addEventListener("keydown", tryStart, { once: true });
 
@@ -80,7 +83,8 @@ export default function WeddingMusicPlayer() {
       <audio
         ref={audioRef}
         src={AUDIO_SRC}
-        preload="metadata"
+        preload="auto"
+        autoPlay
         loop
         playsInline
       />
