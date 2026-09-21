@@ -23,12 +23,12 @@ export default function ElegantFloralWedding({
 
   const whatsappUrl = useMemo(() => {
     const phone = onlyDigits(invitation.rsvp.whatsapp);
-    return "https://wa.me/" + phone + "?text=" + encodeURIComponent(invitation.rsvp.message);
+    return "https://api.whatsapp.com/send?phone=" + phone + "&text=" + encodeURIComponent(invitation.rsvp.message);
   }, [invitation.rsvp.message, invitation.rsvp.whatsapp]);
 
   const mapsUrl =
     "https://www.google.com/maps/search/?api=1&query=" +
-    encodeURIComponent(invitation.venue.name + ", " + invitation.venue.address);
+    encodeURIComponent(invitation.venue.address);
 
   const bankText = [
     invitation.gift.accountHolder,
@@ -198,8 +198,6 @@ export default function ElegantFloralWedding({
           <a
             className="button button--primary"
             href={whatsappUrl}
-            target="_blank"
-            rel="noreferrer"
           >
             <Icon name="whatsapp" size={20} />
             <span>Confirmar asistencia</span>
@@ -223,30 +221,40 @@ export default function ElegantFloralWedding({
         <p className="special-note reveal">{invitation.specialNote}</p>
 
         <section className="gift-card reveal" aria-labelledby="gift-title">
-          <div className="gift-card__icon">
-            <Icon name="gift" size={31} />
-          </div>
-          <span className="eyebrow">Regalos</span>
-          <h2 id="gift-title">{invitation.gift.title}</h2>
-          <div className="gift-card__message">
-            {invitation.gift.lines.map((line) => (
-              <p key={line}>{line}</p>
-            ))}
+          <div className="gift-card__visual" aria-hidden="true">
+            <img
+              src={import.meta.env.BASE_URL + "assets/matrimonios/antonio-nicole/regalo.webp"}
+              alt=""
+            />
           </div>
 
-          <div className="bank-details">
-            <strong>{invitation.gift.accountHolder}</strong>
-            <span>{invitation.gift.bank}</span>
-            <span>{invitation.gift.accountType}</span>
-            <span>N° de cuenta: {invitation.gift.accountNumber}</span>
-            <span>RUT: {invitation.gift.rut}</span>
-            <span>Correo: {invitation.gift.email}</span>
-          </div>
+          <div className="gift-card__content">
+            <div className="gift-card__icon">
+              <Icon name="gift" size={29} />
+            </div>
+            <span className="eyebrow">Regalos</span>
+            <h2 id="gift-title">{invitation.gift.title}</h2>
 
-          <button className="button button--secondary" type="button" onClick={copyBankDetails}>
-            <Icon name="copy" size={19} />
-            {copied ? "¡Datos copiados!" : "Copiar datos bancarios"}
-          </button>
+            <div className="gift-card__message">
+              {invitation.gift.lines.map((line) => (
+                <p key={line}>{line}</p>
+              ))}
+            </div>
+
+            <div className="bank-details">
+              <strong>{invitation.gift.accountHolder}</strong>
+              <span>{invitation.gift.bank}</span>
+              <span>{invitation.gift.accountType}</span>
+              <span>N° de cuenta: {invitation.gift.accountNumber}</span>
+              <span>RUT: {invitation.gift.rut}</span>
+              <span>Correo: {invitation.gift.email}</span>
+            </div>
+
+            <button className="button button--secondary" type="button" onClick={copyBankDetails}>
+              <Icon name="copy" size={19} />
+              {copied ? "¡Datos copiados!" : "Copiar datos bancarios"}
+            </button>
+          </div>
         </section>
 
         <footer className="wedding-footer reveal">
