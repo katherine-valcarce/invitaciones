@@ -28,10 +28,9 @@ const invitation: WeddingInvitation = {
   },
   specialNote: "Vengan a pasarlo bonito",
   gift: {
-    title: "¿Quieres hacernos un regalo?",
+    title: "Tu presencia es nuestro mejor regalo",
     lines: [
-      "Lo que más queremos es compartir este día contigo.",
-      "Si deseas hacernos un presente, puedes ayudarnos a comenzar esta nueva etapa juntos 🤍",
+      "Si deseas hacernos un presente, aquí encontrarás más detalles.",
     ],
     accountHolder: "René Antonio Flores Silva",
     bank: "Banco Estado",
