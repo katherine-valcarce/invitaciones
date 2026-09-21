@@ -181,6 +181,12 @@ export default function ElegantFloralWedding({
         </section>
 
         <section className="rsvp-card reveal">
+          <img
+            className="rsvp-card__flower"
+            src={import.meta.env.BASE_URL + "assets/matrimonios/antonio-nicole/floral-left.webp"}
+            alt=""
+            aria-hidden="true"
+          />
           <div className="rsvp-card__icon">
             <Icon name="whatsapp" size={30} />
           </div>
@@ -196,7 +202,8 @@ export default function ElegantFloralWedding({
             rel="noreferrer"
           >
             <Icon name="whatsapp" size={20} />
-            Confirmar
+            <span>Confirmar asistencia</span>
+            <Icon name="chevron" size={22} />
           </a>
         </section>
 
