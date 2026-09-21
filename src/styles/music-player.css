@@ -1,0 +1,137 @@
+.music-player {
+  position: fixed;
+  right: clamp(14px, 2.4vw, 28px);
+  bottom: clamp(14px, 2.4vw, 26px);
+  z-index: 60;
+  display: grid;
+  grid-template-columns: 48px auto;
+  align-items: center;
+  gap: 10px;
+  max-width: min(286px, calc(100vw - 28px));
+  padding: 8px 14px 8px 8px;
+  border: 1px solid rgba(158, 126, 65, .28);
+  border-radius: 999px;
+  background: rgba(255, 252, 244, .94);
+  color: #65522e;
+  box-shadow:
+    0 10px 30px rgba(52, 47, 35, .12),
+    inset 0 0 0 1px rgba(255,255,255,.68);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.music-player__button {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #6c7e57 0%, #51663f 100%);
+  color: #fff;
+  cursor: pointer;
+  box-shadow:
+    0 7px 16px rgba(68, 83, 53, .22),
+    inset 0 1px 0 rgba(255,255,255,.16);
+}
+
+.music-player__button svg {
+  width: 23px;
+  height: 23px;
+  fill: currentColor;
+}
+
+.music-player__button:focus-visible {
+  outline: 3px solid rgba(166, 132, 68, .34);
+  outline-offset: 3px;
+}
+
+.music-player__pulse {
+  position: absolute;
+  inset: -4px;
+  border: 1px solid rgba(96, 118, 77, .34);
+  border-radius: 50%;
+  opacity: 0;
+}
+
+.music-player--playing .music-player__pulse {
+  animation: wedding-music-pulse 2.2s ease-out infinite;
+}
+
+.music-player__copy {
+  display: grid;
+  min-width: 0;
+  padding-right: 2px;
+  line-height: 1.05;
+}
+
+.music-player__copy span {
+  margin-bottom: 2px;
+  color: #718064;
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-size: .5rem;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.music-player__copy strong {
+  overflow: hidden;
+  color: #5f4b29;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.13rem;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.music-player__copy small {
+  margin-top: 2px;
+  color: #777468;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: .82rem;
+}
+
+@keyframes wedding-music-pulse {
+  0% {
+    transform: scale(.92);
+    opacity: .7;
+  }
+  75%,
+  100% {
+    transform: scale(1.24);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .music-player {
+    grid-template-columns: 46px auto;
+    right: 12px;
+    bottom: 12px;
+    gap: 8px;
+    max-width: calc(100vw - 24px);
+    padding: 7px 12px 7px 7px;
+  }
+
+  .music-player__button {
+    width: 46px;
+    height: 46px;
+  }
+
+  .music-player__copy strong {
+    font-size: 1.04rem;
+  }
+
+  .music-player__copy small {
+    font-size: .76rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .music-player--playing .music-player__pulse {
+    animation: none;
+  }
+}
