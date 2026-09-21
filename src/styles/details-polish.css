@@ -111,37 +111,184 @@
   line-height: 1.12 !important;
 }
 
-/* RSVP as one clean horizontal card with the green action aligned right. */
+/* RSVP card — closer to the reference invitation. */
 .rsvp-card {
-  grid-template-columns: auto minmax(0,1fr) auto !important;
+  position: relative !important;
+  display: grid !important;
+  grid-template-columns: 66px minmax(0,1fr) auto !important;
   gap: 18px !important;
+  align-items: center !important;
   width: min(100%, 780px) !important;
-  margin-top: 18px !important;
-  padding: 15px 18px !important;
-  border: 1px solid rgba(154, 122, 61, .18) !important;
-  border-radius: 18px !important;
-  background: linear-gradient(105deg, #fffdf8 0%, #fbf8ef 100%) !important;
-  box-shadow: 0 11px 28px rgba(61,54,40,.055) !important;
+  min-height: 118px !important;
+  margin-top: 20px !important;
+  padding: 15px 18px 15px 98px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(175, 145, 87, .30) !important;
+  border-radius: 20px !important;
+  background:
+    linear-gradient(106deg, rgba(255,253,247,.98) 0%, rgba(252,248,239,.98) 100%) !important;
+  box-shadow:
+    0 10px 28px rgba(76, 64, 43, .055),
+    inset 0 0 0 1px rgba(255,255,255,.62) !important;
+}
+
+.rsvp-card__flower {
+  position: absolute;
+  z-index: 0;
+  top: -22px;
+  left: -34px;
+  width: 145px;
+  height: 160px;
+  object-fit: contain;
+  object-position: left center;
+  pointer-events: none;
+  filter: drop-shadow(0 7px 12px rgba(49,57,38,.10));
 }
 
 .rsvp-card__icon {
-  width: 58px !important;
-  height: 58px !important;
-  background: #61754d !important;
-  box-shadow: 0 5px 15px rgba(69,83,54,.16);
+  position: relative;
+  z-index: 2;
+  display: grid !important;
+  place-items: center !important;
+  width: 64px !important;
+  height: 64px !important;
+  border: 5px solid rgba(247,244,235,.94);
+  border-radius: 50% !important;
+  background: #60764d !important;
+  color: #fff !important;
+  box-shadow: 0 6px 16px rgba(65,82,52,.18) !important;
+}
+
+.rsvp-card__copy {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+  text-align: left;
+}
+
+.rsvp-card__copy span {
+  display: block !important;
+  margin-bottom: 5px;
+  color: #4c5b43 !important;
+  font-family: "Montserrat", system-ui, sans-serif !important;
+  font-size: .62rem !important;
+  font-weight: 600 !important;
+  letter-spacing: .24em !important;
+  line-height: 1.2;
+  text-transform: uppercase !important;
+}
+
+.rsvp-card__copy strong {
+  display: block !important;
+  margin: 0 !important;
+  color: #2f302b !important;
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-size: 1.35rem !important;
+  font-weight: 500 !important;
+  line-height: 1.12 !important;
+}
+
+.rsvp-card__copy small {
+  display: block !important;
+  margin-top: 5px !important;
+  color: #3a3b35 !important;
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-size: 1.18rem !important;
+  font-weight: 500 !important;
+  letter-spacing: .015em;
+  line-height: 1.1 !important;
 }
 
 .rsvp-card .button--primary {
+  position: relative;
+  z-index: 2;
   grid-column: auto !important;
-  min-width: 225px;
-  min-height: 54px;
-  padding-inline: 24px !important;
-  border-radius: 16px !important;
-  background: linear-gradient(180deg, #60764b, #4f663c) !important;
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 1.16rem;
-  font-weight: 600;
-  box-shadow: 0 8px 18px rgba(63,76,53,.18) !important;
+  display: grid !important;
+  grid-template-columns: auto 1fr auto;
+  gap: 11px !important;
+  align-items: center;
+  min-width: 285px !important;
+  min-height: 62px !important;
+  padding: 0 18px 0 20px !important;
+  border: 1px solid rgba(55,72,43,.22) !important;
+  border-radius: 18px !important;
+  background: linear-gradient(180deg, #5f7549 0%, #4b6338 100%) !important;
+  color: #fff !important;
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-size: 1.34rem !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  text-align: left;
+  box-shadow:
+    0 9px 18px rgba(63,76,53,.20),
+    inset 0 1px 0 rgba(255,255,255,.10) !important;
+}
+
+.rsvp-card .button--primary > span {
+  white-space: nowrap;
+}
+
+.rsvp-card .button--primary svg:last-child {
+  justify-self: end;
+  opacity: .95;
+}
+
+@media (max-width: 700px) {
+  .rsvp-card {
+    grid-template-columns: 60px minmax(0,1fr) !important;
+    gap: 14px !important;
+    padding: 14px 14px 14px 82px !important;
+  }
+
+  .rsvp-card__flower {
+    left: -43px;
+    width: 128px;
+    height: 150px;
+  }
+
+  .rsvp-card__icon {
+    width: 58px !important;
+    height: 58px !important;
+  }
+
+  .rsvp-card .button--primary {
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 56px !important;
+    margin-top: 2px;
+  }
+}
+
+@media (max-width: 430px) {
+  .rsvp-card {
+    padding: 13px 12px 13px 70px !important;
+    border-radius: 18px !important;
+  }
+
+  .rsvp-card__flower {
+    top: -12px;
+    left: -50px;
+    width: 115px;
+    height: 140px;
+  }
+
+  .rsvp-card__copy span {
+    font-size: .54rem !important;
+    letter-spacing: .19em !important;
+  }
+
+  .rsvp-card__copy strong {
+    font-size: 1.12rem !important;
+  }
+
+  .rsvp-card__copy small {
+    font-size: 1.02rem !important;
+  }
+
+  .rsvp-card .button--primary {
+    font-size: 1.16rem !important;
+  }
 }
 
 /* Separate map card, matching the ideal reference. */
@@ -189,16 +336,6 @@
     min-height: 172px !important;
   }
 
-  .rsvp-card {
-    grid-template-columns: auto 1fr !important;
-  }
-
-  .rsvp-card .button--primary {
-    grid-column: 1 / -1 !important;
-    width: 100%;
-    min-width: 0;
-  }
-
   .shell-photo-flower {
     width: 150px;
     opacity: .60;
@@ -230,16 +367,6 @@
 
   .detail-card small {
     font-size: .88rem !important;
-  }
-
-  .rsvp-card {
-    gap: 12px !important;
-    padding: 14px !important;
-  }
-
-  .rsvp-card__icon {
-    width: 52px !important;
-    height: 52px !important;
   }
 
   .location-button {
