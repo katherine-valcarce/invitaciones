@@ -53,19 +53,11 @@ export default function ElegantFloralWedding({
       <section className="hero" aria-labelledby="couple-name">
         <div className="hero__photo">
           {heroSrc && (
-            <>
-              <img
-                className="hero__backdrop"
-                src={heroSrc}
-                alt=""
-                aria-hidden="true"
-              />
-              <img
-                className="hero__image"
-                src={heroSrc}
-                alt={invitation.couple.first + " y " + invitation.couple.second}
-              />
-            </>
+            <img
+              className="hero__image"
+              src={heroSrc}
+              alt={invitation.couple.first + " y " + invitation.couple.second}
+            />
           )}
         </div>
 
