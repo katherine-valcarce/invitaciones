@@ -396,3 +396,183 @@
     right: -84px;
   }
 }
+
+
+/* Gift section — image-led card with preserved bank details */
+.gift-card {
+  position: relative !important;
+  display: grid !important;
+  grid-template-columns: minmax(220px, 34%) minmax(0, 1fr) !important;
+  width: min(100%, 780px) !important;
+  margin: 34px auto 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(175,145,87,.30) !important;
+  border-radius: 22px !important;
+  background:
+    linear-gradient(108deg, rgba(255,253,248,.98), rgba(250,246,237,.96)) !important;
+  box-shadow:
+    0 13px 34px rgba(69,58,40,.06),
+    inset 0 0 0 1px rgba(255,255,255,.68) !important;
+  text-align: left !important;
+}
+
+.gift-card::before,
+.gift-card::after {
+  display: none !important;
+  content: none !important;
+}
+
+.gift-card__visual {
+  position: relative;
+  min-height: 330px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 42% 48%, rgba(201,178,125,.14), transparent 58%),
+    linear-gradient(180deg, rgba(248,244,235,.96), rgba(255,253,248,.98));
+}
+
+.gift-card__visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, transparent 72%, rgba(255,253,248,.86) 100%);
+  pointer-events: none;
+}
+
+.gift-card__visual img {
+  position: absolute;
+  left: -10%;
+  bottom: 2%;
+  width: 118%;
+  height: auto;
+  max-width: none;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 20px rgba(68,57,38,.11));
+}
+
+.gift-card__content {
+  position: relative;
+  padding: 30px 30px 27px;
+  text-align: center;
+}
+
+.gift-card__icon {
+  position: static !important;
+  display: grid !important;
+  place-items: center !important;
+  width: 46px !important;
+  height: 46px !important;
+  margin: 0 auto 8px !important;
+  transform: none !important;
+  border: 1px solid rgba(154,122,61,.28) !important;
+  border-radius: 50% !important;
+  background: #fffaf1 !important;
+  color: #9a7a3d !important;
+  box-shadow: 0 5px 15px rgba(76,64,43,.05);
+}
+
+.gift-card .eyebrow {
+  display: block;
+  margin-bottom: 7px;
+  color: #566149;
+  font-size: .6rem;
+  letter-spacing: .32em;
+}
+
+.gift-card h2 {
+  margin: 0 auto 9px !important;
+  max-width: 520px;
+  color: #3d3b32 !important;
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-size: clamp(1.75rem, 3.2vw, 2.25rem) !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  line-height: 1.04 !important;
+}
+
+.gift-card__message {
+  width: min(100%, 500px) !important;
+  margin: 0 auto 17px !important;
+}
+
+.gift-card__message p {
+  margin: 4px 0 !important;
+  color: #5f6259 !important;
+  font-size: 1.04rem !important;
+  line-height: 1.25 !important;
+}
+
+.bank-details {
+  gap: 4px !important;
+  margin: 0 auto !important;
+  color: #343831 !important;
+  font-size: 1.04rem !important;
+  line-height: 1.18;
+}
+
+.bank-details strong {
+  margin-bottom: 4px !important;
+  color: #34372f;
+  font-size: 1.2rem !important;
+}
+
+.gift-card .button--secondary {
+  min-height: 43px;
+  margin-top: 18px !important;
+  padding: 0 17px !important;
+  border: 1px solid rgba(154,122,61,.28) !important;
+  border-radius: 999px !important;
+  background: #fffaf1 !important;
+  color: #775f32 !important;
+  box-shadow: 0 5px 14px rgba(69,58,40,.045);
+}
+
+@media (max-width: 700px) {
+  .gift-card {
+    grid-template-columns: 1fr !important;
+  }
+
+  .gift-card__visual {
+    min-height: 220px;
+  }
+
+  .gift-card__visual::after {
+    background: linear-gradient(to bottom, transparent 74%, rgba(255,253,248,.92) 100%);
+  }
+
+  .gift-card__visual img {
+    left: 50%;
+    bottom: -4%;
+    width: min(94%, 520px);
+    transform: translateX(-50%);
+  }
+
+  .gift-card__content {
+    padding: 24px 20px 25px;
+  }
+}
+
+@media (max-width: 430px) {
+  .gift-card {
+    border-radius: 18px !important;
+  }
+
+  .gift-card__visual {
+    min-height: 185px;
+  }
+
+  .gift-card__content {
+    padding: 20px 15px 22px;
+  }
+
+  .gift-card h2 {
+    font-size: 1.62rem !important;
+  }
+
+  .gift-card__message p,
+  .bank-details {
+    font-size: .98rem !important;
+  }
+}
+
