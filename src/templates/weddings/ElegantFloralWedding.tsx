@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import Countdown from "../../components/Countdown";
 import Icon from "../../components/Icon";
+import WeddingMusicPlayer from "../../components/WeddingMusicPlayer";
 import type { WeddingInvitation } from "../../invitations/types";
 import "../../styles/hero-polish.css";
 import "../../styles/details-polish.css";
@@ -51,6 +52,7 @@ export default function ElegantFloralWedding({
 
   return (
     <main className="wedding-page">
+      <WeddingMusicPlayer />
       <section className="hero" aria-labelledby="couple-name">
         <div className="hero__photo">
           {heroSrc && (
