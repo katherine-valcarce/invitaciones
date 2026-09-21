@@ -1268,3 +1268,222 @@ a { color: inherit; }
     height: 114px;
   }
 }
+
+
+/* ===== HERO V8 — definitive SVG wave layout =====
+   One real SVG wave replaces the accumulated ::before/::after experiments.
+   The whole lower composition begins substantially lower so Nicole's mouth
+   and chin remain visible, while the pronounced curve stays intact. */
+.hero {
+  position: relative !important;
+  min-height: 0 !important;
+  aspect-ratio: 1.46 / 1 !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+}
+
+/* Photo is allowed to continue behind the wave almost to the bottom. */
+.hero__photo {
+  position: absolute !important;
+  inset: 0 !important;
+  overflow: hidden !important;
+  z-index: 0 !important;
+}
+
+.hero__image {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  max-width: none !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: 50% 43% !important;
+  transform: none !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
+.hero__photo::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,.01) 0%,
+    transparent 78%,
+    rgba(255,252,244,.04) 100%
+  ) !important;
+}
+
+/* Kill every previous pseudo-element curve. */
+.hero__panel::before,
+.hero__panel::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Real pronounced wave. The crest sits around 58–60% of the hero. */
+.hero__wave {
+  position: absolute !important;
+  z-index: 8 !important;
+  left: 0 !important;
+  top: 52.8% !important;
+  width: 100% !important;
+  height: 18.5% !important;
+  overflow: visible !important;
+  pointer-events: none !important;
+}
+
+.hero__wave-fill {
+  fill: #fffdf7;
+}
+
+.hero__wave-soft {
+  fill: rgba(250, 246, 237, .78);
+}
+
+/* The actual ivory panel begins below the wave, not halfway up the faces. */
+.hero__panel {
+  position: absolute !important;
+  z-index: 8 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  top: 64% !important;
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 7px 7% 15px !important;
+  overflow: visible !important;
+  border-radius: 0 !important;
+  background: linear-gradient(180deg, #fffdf7 0%, #faf5ea 100%) !important;
+  box-shadow: none !important;
+  text-align: center !important;
+}
+
+.hero__panel > * {
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+.hero__panel .eyebrow {
+  display: inline-block !important;
+  margin: 0 0 1px !important;
+}
+
+.hero__panel .couple-name {
+  margin: -3px 0 -5px !important;
+  font-size: clamp(3.7rem, 8vw, 5.7rem) !important;
+}
+
+.hero__panel .ornament {
+  margin: 6px auto 4px !important;
+}
+
+.hero__date {
+  margin: 0 !important;
+}
+
+.hero__scroll {
+  margin-top: 8px !important;
+}
+
+/* Flowers move with the wave and sit on its outer shoulders. */
+.hero-flower {
+  position: absolute !important;
+  z-index: 11 !important;
+  width: auto !important;
+  height: clamp(205px, 26vw, 270px) !important;
+  object-fit: contain !important;
+  pointer-events: none !important;
+}
+
+.hero-flower--left {
+  left: -10px !important;
+  bottom: 21.5% !important;
+}
+
+.hero-flower--right {
+  right: -10px !important;
+  bottom: 21.5% !important;
+}
+
+/* Keep top editorial details delicate and clear. */
+.hero__monogram {
+  top: 3.8% !important;
+  left: 5% !important;
+}
+
+.hero__phrase {
+  top: 9.5% !important;
+  right: 4.2% !important;
+}
+
+.hero__menu {
+  top: 3.4% !important;
+  right: 3.3% !important;
+  display: grid !important;
+}
+
+@media (max-width: 700px) {
+  .hero {
+    min-height: 720px !important;
+    aspect-ratio: auto !important;
+  }
+
+  .hero__image {
+    object-position: 50% 42% !important;
+  }
+
+  .hero__wave {
+    top: 55% !important;
+    height: 16.5% !important;
+  }
+
+  .hero__panel {
+    top: 65.5% !important;
+    padding: 7px 5% 12px !important;
+  }
+
+  .hero-flower {
+    height: 170px !important;
+  }
+
+  .hero-flower--left,
+  .hero-flower--right {
+    bottom: 20.5% !important;
+  }
+
+  .hero__panel .couple-name {
+    font-size: clamp(3.05rem, 14.8vw, 4.15rem) !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .hero {
+    min-height: 690px !important;
+  }
+
+  .hero__image {
+    object-position: 50% 41% !important;
+  }
+
+  .hero__wave {
+    top: 56% !important;
+    height: 15.5% !important;
+  }
+
+  .hero__panel {
+    top: 66% !important;
+  }
+
+  .hero-flower {
+    height: 148px !important;
+  }
+
+  .hero-flower--left,
+  .hero-flower--right {
+    bottom: 20% !important;
+  }
+}

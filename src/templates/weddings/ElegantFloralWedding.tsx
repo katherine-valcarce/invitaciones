@@ -88,6 +88,23 @@ export default function ElegantFloralWedding({
           aria-hidden="true"
         />
 
+        <svg
+          className="hero__wave"
+          viewBox="0 0 1000 180"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            className="hero__wave-fill"
+            d="M0 112 C245 126 322 38 500 34 C678 30 758 123 1000 110 L1000 180 L0 180 Z"
+          />
+          <path
+            className="hero__wave-soft"
+            d="M0 126 C260 137 346 62 500 58 C654 54 744 134 1000 124 L1000 180 L0 180 Z"
+          />
+        </svg>
+
         <div className="hero__panel">
           <span className="eyebrow">Nos casamos</span>
           <h1 id="couple-name" className="couple-name">
