@@ -1147,3 +1147,124 @@ a { color: inherit; }
     object-position: 50% 47%;
   }
 }
+
+
+/* ===== Antonio & Nicole hero v7: lower full block + pronounced curve =====
+   Goal: keep Nicole's full mouth/chin visible while moving the whole ivory
+   composition (curve + flowers + names) lower, without flattening the wave. */
+.hero {
+  aspect-ratio: 1.34 / 1;
+  min-height: 0;
+}
+
+/* Let the photograph remain visible substantially farther down. */
+.hero__photo {
+  inset: 0 0 13% 0;
+}
+
+.hero__image {
+  object-position: 50% 46%;
+}
+
+/* Move the floral frame down together with the ivory panel. */
+.hero-flower {
+  height: clamp(205px, 27vw, 270px);
+}
+
+.hero-flower--left,
+.hero-flower--right {
+  bottom: 8.5%;
+}
+
+/* The panel itself begins much lower. */
+.hero__panel {
+  min-height: 28%;
+  padding: 18px 7% 14px;
+}
+
+/* Restore a strong, deep arch even though the whole block sits lower. */
+.hero__panel::before {
+  top: -96px;
+  left: -8%;
+  width: 116%;
+  height: 146px;
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+}
+
+/* Keep the content close to the crest so there is not a large empty gap. */
+.hero__panel .eyebrow {
+  margin-top: -2px;
+}
+
+.hero__panel .couple-name {
+  margin-top: -4px;
+}
+
+@media (max-width: 700px) {
+  .hero {
+    min-height: 760px;
+    aspect-ratio: auto;
+  }
+
+  .hero__photo {
+    inset: 0 0 14% 0;
+  }
+
+  .hero__image {
+    object-position: 50% 45%;
+  }
+
+  .hero-flower {
+    height: 178px;
+  }
+
+  .hero-flower--left,
+  .hero-flower--right {
+    bottom: 10%;
+  }
+
+  .hero__panel {
+    min-height: 30%;
+    padding: 15px 5% 12px;
+  }
+
+  .hero__panel::before {
+    top: -82px;
+    left: -10%;
+    width: 120%;
+    height: 126px;
+  }
+}
+
+@media (max-width: 430px) {
+  .hero {
+    min-height: 720px;
+  }
+
+  .hero__photo {
+    inset: 0 0 15% 0;
+  }
+
+  .hero__image {
+    object-position: 50% 44%;
+  }
+
+  .hero-flower {
+    height: 154px;
+  }
+
+  .hero-flower--left,
+  .hero-flower--right {
+    bottom: 11%;
+  }
+
+  .hero__panel {
+    min-height: 31%;
+    padding-top: 13px;
+  }
+
+  .hero__panel::before {
+    top: -74px;
+    height: 114px;
+  }
+}
