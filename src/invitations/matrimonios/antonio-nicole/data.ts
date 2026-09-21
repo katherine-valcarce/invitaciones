@@ -26,7 +26,7 @@ const invitation: WeddingInvitation = {
     message:
       "Hola Antonio y Nicole 🤍 Quisiera confirmar mi asistencia a su matrimonio del 06 de febrero de 2027.",
   },
-  specialNote: "Vengan a pasarlo bonito",
+  specialNote: "Vengan a compartir, celebrar y disfrutar este día con nosotros",
   gift: {
     title: "¿Quieres hacernos un regalo?",
     lines: [
