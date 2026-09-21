@@ -684,7 +684,7 @@ a { color: inherit; }
 .botanical-flower__center{fill:#d2ae55;stroke:none}.botanical-flower__dot{fill:#8f723b;stroke:none}
 .botanical-buds{fill:#fffdf8;stroke:rgba(211,199,171,.7);stroke-width:1}
 @media(max-width:700px){
-.hero{min-height:720px}.hero__photo{inset:0 0 27% 0}.hero__monogram{top:4.5%;left:4%;min-width:104px}.hero__monogram strong{font-size:3.15rem}
+.hero{min-height:720px}.hero__photo{inset:0 0 10% 0}.hero__monogram{top:4.5%;left:4%;min-width:104px}.hero__monogram strong{font-size:3.15rem}
 .hero__phrase{top:5.2%;right:4%;width:92px;font-size:1.55rem}.hero__panel{min-height:36%;padding:54px 6% 14px;border-radius:58% 42% 0 0/14% 14% 0 0}
 .hero__panel .couple-name{font-size:clamp(3.45rem,16vw,4.55rem)}.hero__panel .eyebrow{letter-spacing:.39em}
 .hero .hero-floral--top-left,.hero .hero-floral--top-right{width:150px}.hero .hero-floral--top-left{top:-62px;left:-68px}.hero .hero-floral--top-right{top:-65px;right:-71px}
@@ -710,7 +710,7 @@ a { color: inherit; }
    This reduces the zoom on the couple without leaving obvious side bands. */
 .hero__photo {
   position: absolute;
-  inset: 0 0 27% 0;
+  inset: 0 0 22% 0;
   overflow: hidden;
   background: #e9dfd0;
 }
@@ -869,8 +869,8 @@ a { color: inherit; }
   left: 0;
   right: 0;
   bottom: 0;
-  min-height: 36%;
-  padding: 18px 7% 16px;
+  min-height: 31%;
+  padding: 12px 17% 12px;
   overflow: visible;
   border-radius: 0;
   background: linear-gradient(180deg, #fffef9 0%, #faf5ea 100%);
@@ -883,9 +883,9 @@ a { color: inherit; }
   position: absolute;
   z-index: -1;
   left: -7%;
-  top: -70px;
+  top: -48px;
   width: 114%;
-  height: 104px;
+  height: 88px;
   border-radius: 50% 50% 0 0 / 100% 100% 0 0;
   background:
     radial-gradient(circle at 50% 0%, rgba(255,255,255,.97), transparent 62%),
@@ -1115,7 +1115,7 @@ a { color: inherit; }
   max-width: none;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 50%;
+  object-position: 50% 20%;
   transform: none;
   -webkit-mask-image: none;
   mask-image: none;
