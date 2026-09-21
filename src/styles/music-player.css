@@ -1,14 +1,17 @@
 .music-player {
   position: fixed;
-  right: clamp(14px, 2.4vw, 28px);
-  bottom: clamp(14px, 2.4vw, 26px);
+  right: clamp(18px, 2.8vw, 34px);
+  top: 50%;
+  bottom: auto;
+  transform: translateY(-50%);
   z-index: 60;
   display: grid;
-  grid-template-columns: 48px auto;
+  grid-template-columns: 58px auto;
   align-items: center;
-  gap: 10px;
-  max-width: min(286px, calc(100vw - 28px));
-  padding: 8px 14px 8px 8px;
+  gap: 12px;
+  min-width: 245px;
+  max-width: min(320px, calc(100vw - 36px));
+  padding: 10px 18px 10px 10px;
   border: 1px solid rgba(158, 126, 65, .28);
   border-radius: 999px;
   background: rgba(255, 252, 244, .94);
@@ -24,8 +27,8 @@
   position: relative;
   display: grid;
   place-items: center;
-  width: 48px;
-  height: 48px;
+  width: 58px;
+  height: 58px;
   padding: 0;
   border: 0;
   border-radius: 50%;
@@ -38,8 +41,8 @@
 }
 
 .music-player__button svg {
-  width: 23px;
-  height: 23px;
+  width: 26px;
+  height: 26px;
   fill: currentColor;
 }
 
@@ -71,7 +74,7 @@
   margin-bottom: 2px;
   color: #718064;
   font-family: "Montserrat", system-ui, sans-serif;
-  font-size: .5rem;
+  font-size: .56rem;
   font-weight: 600;
   letter-spacing: .16em;
   text-transform: uppercase;
@@ -81,7 +84,7 @@
   overflow: hidden;
   color: #5f4b29;
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 1.13rem;
+  font-size: 1.28rem;
   font-weight: 600;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -91,7 +94,7 @@
   margin-top: 2px;
   color: #777468;
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: .82rem;
+  font-size: .9rem;
 }
 
 @keyframes wedding-music-pulse {
@@ -108,17 +111,20 @@
 
 @media (max-width: 520px) {
   .music-player {
-    grid-template-columns: 46px auto;
+    grid-template-columns: 50px auto;
     right: 12px;
-    bottom: 12px;
+    top: auto;
+    bottom: 14px;
+    transform: none;
     gap: 8px;
+    min-width: 0;
     max-width: calc(100vw - 24px);
-    padding: 7px 12px 7px 7px;
+    padding: 8px 13px 8px 8px;
   }
 
   .music-player__button {
-    width: 46px;
-    height: 46px;
+    width: 50px;
+    height: 50px;
   }
 
   .music-player__copy strong {
